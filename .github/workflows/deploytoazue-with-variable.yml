@@ -30,7 +30,7 @@ jobs:
         dotnet-version: ${{ env.DOT_NET_VERSION }}
         
     - name: Print build config
-    - run: echo "Build config - $BUILD_CONFIG"
+      run: echo "Build config - $BUILD_CONFIG"
         
     - name: Restore dependencies
       run: dotnet restore
