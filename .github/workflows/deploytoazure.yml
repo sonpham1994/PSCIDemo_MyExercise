@@ -5,9 +5,9 @@ name: 'Deploy to Azure App Service'
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "development" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "development" ]
 
 env:
   AZURE_WEBAPP_PACKAGE_PATH: '.'
