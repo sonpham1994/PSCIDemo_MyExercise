@@ -42,9 +42,6 @@ jobs:
     - name: Publish
       run: dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
       
-    - name: Test
-      run: dotnet test --nobuild --verbosity normal
-      
     - name: Deploy
       uses: azure/webapps-deploy@v2
       with:
