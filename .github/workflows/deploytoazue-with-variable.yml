@@ -42,12 +42,15 @@ jobs:
     - name: Publish
       run: dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
       
+    - name: Test
+      run: dotnet test --nobuild --verbosity normal
+      
     - name: Deploy
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         slot-name: ${{ env.SLOT_NAME }}
-        publish-profile: '${{ secrets.PRODUCTION_AZURE_WEBAPP_PUBLISH_PROFILE }}'
+        publish-profile: '${{ secrets.PRODUCTION_AZURE_WEB_APP }}'
         package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
       env:
         SLOT_NAME: 'Production'
